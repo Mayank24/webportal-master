@@ -55,7 +55,7 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        $role = Role::get()->pluck('name', 'id');
+        $role = Role::get()->except(1)->pluck('name', 'id');
         //$role->pop();
         $role->prepend('Please Select', 'default');
         return view('auth.register',['role' => $role]);
