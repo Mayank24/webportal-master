@@ -33,7 +33,7 @@ class UsersGenerate extends Seeder
 			    		'id'=>'2',
 			    		'slug' 		=> 'admin',
 			    		'name' 		=> 'Admin',
-			    		'permissions' => '{"home.dashboard":true,"role.index":true,"role.create":true,"role.store":true,"role.show":true,"role.edit":true,"role.update":true,"role.destroy":true,"role.permissions":true,"role.save":true}',
+			    		'permissions' => '{"home.dashboard":true,"role.index":true,"rent.create":true,"role.store":true,"role.show":true,"role.edit":true,"role.update":true,"role.destroy":true,"role.permissions":true,"role.save":true}',
 			    ],
 			    [
 			    	'id' => '3',
