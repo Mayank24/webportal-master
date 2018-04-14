@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +182,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         //Sentinel services
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        //laravel debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
 
 
     ],
@@ -237,7 +239,7 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

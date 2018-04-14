@@ -25,15 +25,15 @@ class UsersGenerate extends Seeder
          DB::table('roles')->insert([
 			    [		
 			    		'id'=>'1',
-			    		'slug' 		=> 'admin',
-			    		'name' 			=> 'Admin',
+			    		'slug' 		=> 'superadmin',
+			    		'name' 			=> 'SuperAdmin',
 			    		'permissions' 	=> '{"password.request":true,"password.email":true,"password.reset":true,"home.dashboard":true,"user.index":true,"user.create":true,"user.store":true,"user.show":true,"user.edit":true,"user.update":true,"user.destroy":true,"user.permissions":true,"user.save":true,"user.activate":true,"user.deactivate":true,"role.index":true,"role.create":true,"role.store":true,"role.show":true,"role.edit":true,"role.update":true,"role.destroy":true,"role.permissions":true,"role.save":true}',
 			    ],
 			    [		
 			    		'id'=>'2',
-			    		'slug' 		=> 'client',
-			    		'name' 			=> 'client',
-			    		'permissions' 			=> '{"home.dashboard":true}',
+			    		'slug' 		=> 'admin',
+			    		'name' 		=> 'Admin',
+			    		'permissions' => '{"home.dashboard":true}',
 			    ]
 		 ]);
 		 DB::table('role_users')->insert([

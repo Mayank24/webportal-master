@@ -66,7 +66,7 @@
         </ul>
         
         <!--======= Sign up Now =========-->
-        <div class="sub-nav-co"> <a href="08-Signup.html">Sign up now</a> </div>
+        <div class="sub-nav-co"> <a href="{{ route('register') }}">Sign up now</a> </div>
       </div>
     </nav>
   </header>

@@ -11,6 +11,7 @@ use Redirect;
 use Sentinel;
 use Session;
 use Activation;
+use App\Role;
 class RegisterController extends Controller
 {
     /*
@@ -54,7 +55,10 @@ class RegisterController extends Controller
     
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $role = Role::get()->pluck('name', 'id');
+        //$role->pop();
+        $role->prepend('Please Select', 'default');
+        return view('auth.register',['role' => $role]);
     }
 
     public function register(Request $request){
@@ -63,12 +67,13 @@ class RegisterController extends Controller
                 'first_name' => 'required|string|max:255',
                 'last_name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
+                'role' => 'required',
                 'password' => 'required|string|min:6|confirmed',
             ]);
 
-          if ($validation->fails()) {
-                return Redirect::back()->withErrors($validation)->withInput();
-         }
+        if ($validation->fails()) {
+            return Redirect::back()->withErrors($validation)->withInput();
+        }
 
          $user = Sentinel::register($request->all());
         //Activate the user ** 
@@ -77,7 +82,7 @@ class RegisterController extends Controller
         //End activation
 
         if($user){
-            $user->roles()->sync([2]); // 2 = client
+            $user->roles()->sync([$request->input('role')]);
             Session::flash('message', 'Registration is completed');
             Session::flash('status', 'success');
            return redirect('/'); 

@@ -40,6 +40,16 @@ Register
                  {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
               </div>
             </div>
+            <div class="form-group  {{ $errors->has('last_name') ? 'has-error' : ''}}">
+              <label for="last_name" class="cols-sm-2 control-label">User Type</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  {!! Form::select('role', $role, null, ['class' => 'form-control margin', 'selected']) !!}
+                </div>
+                 {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
+              </div>
+            </div>
 
             <div class="form-group  {{ $errors->has('email') ? 'has-error' : ''}}">
               <label for="email" class="cols-sm-2 control-label">Your Email</label>
